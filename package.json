@@ -1,7 +1,7 @@
 {
-  "name": "whatsapp-ai-bot-fixed",
-  "version": "1.0.0",
-  "description": "Mark Zuckerberg — Gohar's Personal AI Assistant",
+  "name": "whatsapp-ai-gateway",
+  "version": "2.1.0",
+  "description": "Multi-tenant WhatsApp AI gateway with independent session management, Cloudflare edge routing, and admin console",
   "main": "src/index.js",
   "type": "module",
   "scripts": {
