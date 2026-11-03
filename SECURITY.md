@@ -2,22 +2,24 @@
 
 ## Supported Versions
 
-| Version | Supported |
-|---|---|
-| Default Branch (main) | Yes |
+| Version | Supported | Description |
+| :--- | :--- | :--- |
+| `2.1.x` | Yes | Current stable release branch (`main`) |
+| `< 2.1.0` | No | Legacy versions |
+
+## Multi-Tenant Security Scope and Boundaries
+
+whatsapp-ai-gateway operates as a multi-tenant messaging gateway. Strict security invariants are enforced:
+* **Tenant Isolation**: Each tenant's WhatsApp session files (`auth_info_<tenant_id>/`) must remain strictly isolated. Cross-tenant credential access is considered a critical security vulnerability.
+* **API Key Protection**: External LLM keys (Groq SDK) and internal administrative JWT tokens must never be written to static files, returned in API responses, or exposed to the frontend console.
+* **Edge Worker Authentication**: Edge-to-origin communication through Cloudflare Workers must enforce HMAC-SHA256 request signing and replay attack prevention.
 
 ## Reporting a Vulnerability
 
-We take the security of this repository and our software seriously. If you believe you have identified a vulnerability, security flaw, or credential exposure, please report it immediately through private disclosure channels.
+If you discover a security vulnerability or multi-tenant authorization bypass, please report it privately:
 
-* **Security Contact**: goharrehmanfsd260@gmail.com
-* **Maintainer**: Gohar Rehman (@itsgoharrehman)
+* **Security Contact**: Gohar Rehman
+* **Email**: `goharrehmanfsd260@gmail.com`
+* **Response SLA**: Initial acknowledgement within 48 hours; remediation timeline provided within 7 days.
 
-### Vulnerability Report Details
-When reporting a vulnerability, please provide:
-* A detailed description of the issue and potential security impact.
-* Exact step-by-step reproduction instructions or a minimal proof-of-concept.
-* Specific affected files, functions, or endpoints.
-
-### Responsible Disclosure
-Please do not open public GitHub issues or public pull requests detailing undisclosed vulnerabilities. Reports will be acknowledged within 48 hours and investigated promptly.
+Please do not open public GitHub issues or discussions regarding undisclosed vulnerabilities.
