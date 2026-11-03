@@ -1,0 +1,30 @@
+name: Feature Request
+description: Propose a new feature or improvement for whatsapp-ai-gateway
+title: "[FEATURE]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Propose a new feature, LLM provider integration, or operational enhancement.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: Is this feature related to a limitation or operational challenge?
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Clear description of the proposed feature and implementation approach.
+    validations:
+      required: true
+  - type: textarea
+    id: architecture_impact
+    attributes:
+      label: Multi-Tenant Architecture Impact
+      description: How does this affect tenant session isolation, Edge routing, or database schema?
+    validations:
+      required: true
